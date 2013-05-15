@@ -18,7 +18,7 @@ $patients = $patient_model->list_all();
     <title>ARX Test - Patient Selection Page</title>
     <meta name="description" content="assistrx programming test">
     <meta name="author" content="assistrx-dw">
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <link rel="stylesheet" href="public/styles.css?v=1.0">
 </head>
 <body>
 
@@ -58,6 +58,9 @@ $patients = $patient_model->list_all();
     </table>
 
     <!-- scripts at the bottom! -->
+    <script src="public/jquery-1.9.1.min.js"></script>
+
+    <!-- this script file is for global js -->
     <script src="public/script.js"></script>
 </body>
 </html>
