@@ -4,12 +4,16 @@ class my_model
 {
     public function __construct()
     {
+        // grab the DB config settings from a ini file
+        // http://php.net/manual/en/function.parse-ini-file.php
+        $settings = parse_ini_file('config.php', TRUE);
+
         // establish connection to DB
         $this->db = new mysqli(
-            'localhost', // HOST
-            'root',      // USER
-            'panther5',  // PASS
-            'arx_test'   // DB_NAME
+            $settings['DB']['host'],
+            $settings['DB']['user'],
+            $settings['DB']['pass'],
+            $settings['DB']['database']
         );
 
         // should you handle connection errors?
