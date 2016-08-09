@@ -1,8 +1,10 @@
 <?php 
 
-include 'my_model.php';
+include 'base.php';
 
-class patient_model extends my_model
+// Patient Model
+// Clase del Core
+class patient extends base
 {
     public function __construct()
     {
@@ -18,18 +20,5 @@ class patient_model extends my_model
         $result = $this->db->query('select * from patients');
 
         return parent::result_array($result);
-    }
-
-    public function get_by_id($patient_id = NULL)
-    {
-        $result = $this->db->query("
-            SELECT *
-            FROM patients
-            LEFT JOIN songs
-                ON patients.favorite_song_id = songs.song_id
-            WHERE  patient_id = {$patient_id}
-        ");
-
-        return $result->fetch_object();
     }
 }

@@ -142,35 +142,3 @@ VALUES
 
 /*!40000 ALTER TABLE `patients` ENABLE KEYS */;
 UNLOCK TABLES;
-
-
-# Dump of table songs
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `songs`;
-
-CREATE TABLE `songs` (
-  `song_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `song_name` varchar(300) NOT NULL,
-  `song_data` tinytext NOT NULL,
-  `song_hash` varchar(32) NOT NULL DEFAULT '',
-  PRIMARY KEY (`song_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-
-DELIMITER ;;
-/*!50003 SET SESSION SQL_MODE="" */;;
-/*!50003 CREATE */ /*!50017 DEFINER=`root`@`localhost` */ /*!50003 TRIGGER `get_song_hash` BEFORE INSERT ON `songs` FOR EACH ROW BEGIN 
-	SET new.song_hash = md5(new.song_data);
-END */;;
-DELIMITER ;
-/*!50003 SET SESSION SQL_MODE=@OLD_SQL_MODE */;
-
-
-
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
