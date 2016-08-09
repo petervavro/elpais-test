@@ -14,10 +14,10 @@ class patient extends base
         parent::__construct();
     }
 
-    public function list_all()
+    public function list_query($query)
     {
         $result_array = array();
-        $result = $this->db->query('select * from patients');
+        $result = $this->db->query($query);
 
         return parent::result_array($result);
     }
