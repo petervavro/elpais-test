@@ -15,3 +15,4 @@ El País Test
 
 ##Nota:
 Por favor hacer un fork de este repositorio y enviarme el enlace del repositorio con la solución.
+Se evaluarán las buenas prácticas de programación (de OOP, javascript, uso de GIT).
